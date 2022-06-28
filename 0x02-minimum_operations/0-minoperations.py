@@ -8,13 +8,13 @@ def minOperations(n):
     if n < 2:
         return 0
 
-    _times: int = 0
-    _max: int = 2
+    _times = 0
+    _max = 2
 
     while n > 1:
         if not n % _max:
             n //= _max
-            _times +=  _max
+            _times += _max
 
         else:
             if _max == 2:
