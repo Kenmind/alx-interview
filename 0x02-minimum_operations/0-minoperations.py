@@ -5,26 +5,21 @@
 def minOperations(n):
     """Performs minOperations on n and
     returns the total number of performed operations to achieve n"""
-    if not isinstance(n, int) or n < 2:
+    if n < 2:
         return 0
 
     _times: int = 0
-    _copied: int = 0
-    _max: int = 1
+    _max: int = 2
 
-    while _max < n:
-        if _copied == 0:
-            _copied = _max
-            _max += _copied
-            _times += 2
+    while n > 1:
+        if not n % _max:
+            n //= _max
+            _times +=  _max
 
-        elif (n - _max) > 0 and (n - _max) % _max == 0:
-            _copied = _max
-            _max += _copied
-            _times += 2
-
-        elif _copied > 0:
-            _max += _copied
-            _times += 1
+        else:
+            if _max == 2:
+                _max += 1
+            else:
+                _max += 2
 
     return _times
