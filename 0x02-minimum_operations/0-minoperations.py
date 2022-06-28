@@ -5,7 +5,7 @@
 def minOperations(n):
     """Performs minOperations on n and
     returns the total number of performed operations to achieve n"""
-    if not isinstance(n, int):
+    if not isinstance(n, int) or n < 2:
         return 0
 
     _times: int = 0
